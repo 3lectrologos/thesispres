@@ -1,0 +1,116 @@
+\RequirePackage[skins,breakable]{tcolorbox}
+\RequirePackage{minibox}
+\RequirePackage{mathtools}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=newest}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.geometric,positioning}
+\RequirePackage{amsmath,amssymb}
+%\RequirePackage{moresize}
+
+%\RequirePackage{xunicode}
+%\RequirePackage{xltxtra}
+
+\RequirePackage{fontspec}
+\setmainfont{Myriad Pro Condensed}
+\setsansfont{Myriad Pro Condensed}
+
+% Colors
+\RequirePackage{xcolor}
+\definecolor{bgcolor}{HTML}{EEEEEE}
+
+\definecolor{textcolor}{HTML}{000000}
+\definecolor{darkcolor}{HTML}{555555}
+\definecolor{col1}{HTML}{9085b8}
+\definecolor{col1dark}{HTML}{443480}
+\colorlet{col1light}{col1!50!white}
+\definecolor{col2}{HTML}{ea9530}
+\definecolor{col3}{HTML}{d34f99}
+\definecolor{col4}{HTML}{67a832}
+
+% Matplotlib "Paired" colormap
+\definecolor{gcol3light}{HTML}{a6cee3}
+\definecolor{gcol3}{HTML}{1f78b4}
+
+\definecolor{gcol5light}{HTML}{b2df8a}
+\definecolor{gcol5}{HTML}{33a02c}
+
+\definecolor{gcol4light}{HTML}{fb9a99}
+\definecolor{gcol4}{HTML}{e31a1c}
+
+\definecolor{gcol2light}{HTML}{fdbf6f}
+\definecolor{gcol2}{HTML}{ff7f00}
+
+\definecolor{gcol1light}{HTML}{cab2d6}
+\definecolor{gcol1}{HTML}{6a3d9a}
+
+\definecolor{gcol6light}{HTML}{ffff99}
+\definecolor{gcol6}{HTML}{b15928}
+
+% Avoid random transparencies in Adobe Acrobat
+\RequirePackage{everypage}
+\AddEverypageHook{%
+  \makeatletter%
+  \special{pdf: put @thispage <</Group << /S /Transparency /I true /CS /DeviceRGB>> >>}%
+  \makeatother%
+}%
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\qboxa}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=1pt,coltext=textcolor,colframe=col1,opacityback=0,opacityframe=1]
+\strut #1
+\end{tcolorbox}%
+}
+
+\newcommand{\qboxatight}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=fbox,hbox,boxsep=4pt,boxrule=1pt,coltext=textcolor,colframe=col1,opacityback=0,opacityframe=1,halign=center,valign=center,square,circular arc]
+#1
+\end{tcolorbox}%
+}
+
+\newcommand{\qboxb}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=1pt,coltext=textcolor,colframe=col2,opacityback=0,opacityframe=1]
+\strut #1
+\end{tcolorbox}%
+}
+
+\newcommand{\qtheorem}[2]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=0.7pt,coltext=textcolor,colframe=col2,colback=col2,opacityback=0,opacityframe=1]
+\begin{minipage}{\textwidth}
+{\color{col2}\strut Theorem #1}\\[0.7em]
+#2
+\end{minipage}
+\end{tcolorbox}%
+}
+
+\newcommand{\qlemma}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=0.7pt,coltext=textcolor,colframe=col2,colback=col1,opacityback=0,opacityframe=1]
+\begin{minipage}{\textwidth}
+{\color{col2}\strut Lemma}\\[0.7em]
+#1
+\end{minipage}
+\end{tcolorbox}%
+}
+
+\newcommand{\qprop}[2]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=0.7pt,coltext=textcolor,colframe=col2,colback=col1,opacityback=0,opacityframe=1]
+\begin{minipage}{\textwidth}
+{\color{col2}\strut Proposition #1}\\[0.7em]
+#2
+\end{minipage}
+\end{tcolorbox}%
+}
+
+\newcommand{\qsubtitle}[1]{%
+{\color{col2}\textsc{#1}}
+}
+
+\newcommand{\qsource}[1]{%
+{\color{col1}\tiny\hfill[#1]}
+}
+
+\RequirePackage{enumitem}
+\setlist[itemize,1]{label=\raisebox{1.2pt}{\scriptsize$\circ$}}
+
+\setlength{\leftmargini}{1em}
