@@ -8,6 +8,11 @@
 
 \author[Alkis Gotovos]{}
 
+
+\newcommand{\tab}[2]{%
+\makebox[#1\linewidth][l]{#2}%
+}
+
 \begin{document}
 
 \setbeamertemplate{background canvas}{}
@@ -15,15 +20,60 @@
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{figures/bg_no_line.png}}
 
 
-\begin{frame}{Modeling gene alterations}
+\begin{frame}{The Cancer Genome Atlas}
+\vspace{0.5em}
+\centering
+\includegraphics[width=2.5in]{figures/tcga.png}\\[-0.3em]
+\hspace{12em}\qsource{cancergenome.nih.gov}
+\end{frame}
+
+\begin{frame}{The Cancer Genome Atlas}
+\vspace{0.3em}
+\centering
+\includegraphics[width=3.85in]{figures/pathways_new.png}\\[-0.7em]
+\hspace{22em}\qsource{Schultz et al., 2018}
+\end{frame}
+
+\begin{frame}{Modeling interactions between gene mutations}
 \centering
 \includegraphics[width=3.7in]{figures/example1.pdf}
 \end{frame}
 
-\begin{frame}{Modeling gene alterations}
+\begin{frame}{Modeling interactions between gene mutations}
 \centering
 \includegraphics[width=3.7in]{figures/example1_rep.pdf}
 \end{frame}
 
+\begin{frame}{Modeling interactions between gene mutations}
+\centering
+\includegraphics[width=3.7in]{figures/example1_rep_group.pdf}
+
+\vspace{3em}
+
+\begin{itemize}
+\item \tab{0.4}{Discrete optimization \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} probabilistic models \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
+\vspace{0.7em}
+\item \tab{0.4}{Classic pairwise models \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} higher-order interactions \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
+\vspace{0.7em}
+\item \tab{0.4}{Deep nets \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} structured prior assumptions \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Probabilistic Submodular Models}
+
+\end{frame}
+
+\begin{frame}{Learning \& Inference}
+
+\end{frame}
+
+\begin{frame}{Thesis topic}
+$\rightarrow\ \ $ Investigate the use of sampling to perform approximate inference in PSMs
+
+\vspace{4em}
+
+\centering
+\includegraphics[width=\textwidth]{figures/chapters.pdf}
+\end{frame}
 
 \end{document}

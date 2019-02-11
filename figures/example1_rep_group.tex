@@ -1,0 +1,26 @@
+
+\documentclass[border={1pt 1pt 1pt 1pt}]{standalone}
+
+\usepackage{../core}
+
+\begin{document}
+\begin{tikzpicture}[
+xscale=0.7,
+yscale=0.5
+]
+
+  \foreach \i/\j in {
+0/17,1/17,2/17,3/17,4/17,5/17,6/17,7/17,8/17,8/16,9/16,10/16,11/16,12/16,13/16,14/16,15/16,15/15,16/15,17/15,18/15,19/15,20/15,21/14,22/14,23/14
+} {
+    \fill[col3] (\i,\j) rectangle (\i+1,\j+1);
+  }
+
+\draw[step=1cm,white,line width=3pt] (0,14) grid (32,18);	
+
+\draw[draw=black,line width=0.4pt] (-0.07,14-0.07) rectangle (32+0.07,18+0.07);
+
+%\node[text=textcolor,rotate=90] at (-0.9,9) {\huge \sffamily \strut Mutations};
+\node[text=textcolor] at (16,19.2) {\huge \sffamily \strut ``Mutually exclusive'' group};
+
+\end{tikzpicture}
+\end{document}
