@@ -1,0 +1,37 @@
+\documentclass{standalone}
+
+
+\usepackage{../core}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  scale=1,
+  >=latex,
+  line join=bevel,
+  NS/.style={circle,draw=darkgray,thin,text=col1dark,fill=col1,inner sep=0,minimum width=8pt,minimum height=8pt,text opacity=0},
+  LL/.style={draw=darkgray,thin}
+  ]
+
+  \node[NS] (a) at (0,-0.1) {.};
+  \node[NS] (b) at (0.45,0.3) {.};
+  \node[NS] (c) at (0.1,0.7) {.};
+  \node[NS] (d) at (0.9,0) {.};
+  \node[NS] (e) at (0.85,0.6) {.};
+  \draw[LL] (a)--(b);
+  \draw[LL] (a)--(c);
+  \draw[LL] (b)--(c);
+  \draw[LL] (b)--(d);
+  \draw[LL] (c)--(e);
+  \draw[LL] (d)--(e);
+  
+  \node[inner sep=0] (Dpps) at (0.45,1.05) {\scriptsize\sffamily low-order MRFs};
+  
+  
+  \node[inner sep=0] (L1) at (-1.05,-0.45) {};
+  \node[inner sep=0] (L2) at (-1.05,1.2) {};
+  \draw[line width=0.4pt,line cap=round] (L1) -- (L2);
+  \node[inner sep=0,rotate=90] (T) at (-1.45,0.4) {\sffamily BP, MF, \ldots};
+\end{tikzpicture}
+
+\end{document}

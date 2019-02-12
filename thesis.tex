@@ -67,7 +67,7 @@
 \begin{frame}{Probabilistic Submodular Models}
 
 \begin{center}
-Distributions over $S \subseteq V = \{1,\ldots,n\}$
+Distributions over subsets of $V = \{1,\ldots,n\}$
 
 \vspace{0.8em}
 \qboxa{
@@ -94,8 +94,70 @@ $p(S; \btheta) = \displaystyle\frac{1}{Z(\btheta)}\exp \big( F(S; \btheta) \big)
 
 \end{frame}
 
-\begin{frame}{Learning \& Inference}
+\begin{frame}{Inference}
+\begin{center}
+Distributions over subsets of $V = \{1,\ldots,n\}$
 
+\vspace{0.8em}
+\qboxa{
+$p(S; \btheta) = \displaystyle\frac{1}{Z(\btheta)}\exp \big( F(S; \btheta) \big)$
+}
+\end{center}
+\vspace{2em}
+
+Fundamental tasks
+\begin{itemize}
+\item Compute marginals $\ \mathbb{P}(a \in S \mid \{b, c\} \subseteq S)$
+\item Compute $\ Z$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Inference}
+\vspace{0.5em}
+
+\begin{minipage}{\textwidth}
+\begin{columns}[c]
+\column{0.36\textwidth}
+\includegraphics[height=0.7in]{figures/inf_dpp.pdf}
+\column{0.57\textwidth}
+\begin{itemize}
+\item Tractable only for limited subclasses
+\vspace{0.3em}
+\item \#P-hard even for Ising models
+\end{itemize}
+\end{columns}
+\end{minipage}
+
+%\uncover<2->{
+\vspace{2em}
+\begin{minipage}{\textwidth}
+\begin{columns}[c]
+\column{0.36\textwidth}
+\includegraphics[height=0.7in]{figures/inf_mrf.pdf}
+\column{0.57\textwidth}
+\begin{itemize}
+\item Extensively studied model class
+\vspace{0.3em}
+\item Complexity exponential in model order
+\end{itemize}
+\end{columns}
+\end{minipage}
+%}
+
+%\uncover<3->{
+\vspace{2em}
+\begin{minipage}{\textwidth}
+\begin{columns}[c]
+\column{0.36\textwidth}
+\includegraphics[height=0.7in]{figures/inf_psm.pdf}
+\column{0.57\textwidth}
+\begin{itemize}
+\item Variational approach for general PSMs\\
+\qcitea{Djolonga and Krause, 2014; Djolonga and Krause, 2015}
+\end{itemize}
+\end{columns}
+\end{minipage}
+%}
 \end{frame}
 
 \begin{frame}{Thesis Topic}
