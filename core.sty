@@ -13,7 +13,7 @@
 
 \RequirePackage{fontspec}
 \usepackage[libertine]{newtxmath}
-\setmainfont{Myriad Pro Condensed}
+\setmainfont[Mapping=tex-text]{Linux Libertine}
 \setsansfont{Myriad Pro Condensed}
 
 % Colors
@@ -115,3 +115,6 @@
 \setlist[itemize,1]{label=\raisebox{1.2pt}{\scriptsize$\circ$}}
 
 \setlength{\leftmargini}{1em}
+
+\RequirePackage{bm}
+\def\*#1{\bm{#1}}

@@ -9,6 +9,11 @@
 \author[Alkis Gotovos]{}
 
 
+\newcommand{\btheta}{\*\theta}
+\newcommand{\bu}{\*u}
+\newcommand{\bw}{\*w}
+\newcommand{\bv}{\*v}
+
 \newcommand{\tab}[2]{%
 \makebox[#1\linewidth][l]{#2}%
 }
@@ -34,17 +39,17 @@
 \hspace{22em}\qsource{Schultz et al., 2018}
 \end{frame}
 
-\begin{frame}{Modeling interactions between gene mutations}
+\begin{frame}{Modeling Interactions between Gene Mutations}
 \centering
 \includegraphics[width=3.7in]{figures/example1.pdf}
 \end{frame}
 
-\begin{frame}{Modeling interactions between gene mutations}
+\begin{frame}{Modeling Interactions between Gene Mutations}
 \centering
 \includegraphics[width=3.7in]{figures/example1_rep.pdf}
 \end{frame}
 
-\begin{frame}{Modeling interactions between gene mutations}
+\begin{frame}{Modeling Interactions between Gene Mutations}
 \centering
 \includegraphics[width=3.7in]{figures/example1_rep_group.pdf}
 
@@ -61,19 +66,58 @@
 
 \begin{frame}{Probabilistic Submodular Models}
 
+\begin{center}
+Distributions over $S \subseteq V = \{1,\ldots,n\}$
+
+\vspace{0.8em}
+\qboxa{
+$p(S; \btheta) = \displaystyle\frac{1}{Z(\btheta)}\exp \big( F(S; \btheta) \big)$
+}
+\end{center}
+\vspace{2em}
+
+\begin{columns}
+\begin{column}{0.54\textwidth}
+\begin{itemize}
+\item $F : 2^V \to \mathbb{R}\ $ is sub- or supermodular
+\item $Z\ $ is the normalizer
+\item $\btheta\ $ is a parameter vector
+\end{itemize}
+\end{column}
+\begin{column}{0.39\textwidth}
+\begin{itemize}
+\item Ising model (log-supermodular)
+\item DPP (log-submodular)
+\end{itemize}
+\end{column}
+\end{columns}
+
 \end{frame}
 
 \begin{frame}{Learning \& Inference}
 
 \end{frame}
 
-\begin{frame}{Thesis topic}
+\begin{frame}{Thesis Topic}
 $\rightarrow\ \ $ Investigate the use of sampling to perform approximate inference in PSMs
 
 \vspace{4em}
 
 \centering
-\includegraphics[width=\textwidth]{figures/chapters.pdf}
+\uncover<2->{%
+\only<1-2>{\includegraphics[width=\textwidth]{figures/chapters.pdf}}
+\only<3>{\includegraphics[width=\textwidth]{figures/chapters1.pdf}}
+}
+\end{frame}
+
+\begin{frame}{Improved Mixing using Semigradients}
+\centering
+\includegraphics[width=\textwidth]{figures/chapters2.pdf}
+\end{frame}
+
+\begin{frame}{Modeling Interactions between Cancer Mutations}
+\centering
+\includegraphics[width=\textwidth]{figures/chapters3.pdf}
 \end{frame}
 
 \end{document}
