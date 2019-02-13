@@ -13,6 +13,7 @@
 \newcommand{\bu}{\*u}
 \newcommand{\bw}{\*w}
 \newcommand{\bv}{\*v}
+\newcommand{\defeq}{\vcentcolon=}
 
 \newcommand{\tab}[2]{%
 \makebox[#1\linewidth][l]{#2}%
@@ -106,10 +107,22 @@ $p(S; \btheta) = \displaystyle\frac{1}{Z(\btheta)}\exp \big( F(S; \btheta) \big)
 \vspace{2em}
 
 Fundamental tasks
+\vspace{0.5em}
+\hspace{11em}\tikzmark{right}
 \begin{itemize}
-\item Compute marginals $\ \mathbb{P}(a \in S \mid \{b, c\} \subseteq S)$
-\item Compute $\ Z$
+\item Compute marginals $\ \mathbb{P}(a \in S \mid \{b, c\} \subseteq S)$ \tikzmark{i2}
+\item Compute $\ Z$ \tikzmark{i3}
+\item Learn $\btheta$ from data
 \end{itemize}
+
+\begin{tikzpicture}[overlay, remember picture]
+\node[anchor=base] (a) at (pic cs:i2) {\vphantom{h}}; % push the mark to the top of the line (ie including ascenders)
+\node[anchor=base] (b) at (pic cs:i3) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
+\draw [decoration={brace,amplitude=0.5em},decorate,thick,col2]
+ (a.north -| {pic cs:right}) -- (b.south -| {pic cs:right});
+\node [text=col2,xshift=10.4em] (t) at ($(a)!0.5!(b)$) {\#P-hard in general};
+\end{tikzpicture}
+
 \end{frame}
 
 \begin{frame}{Inference}
@@ -164,8 +177,39 @@ Fundamental tasks
 \vspace{1em}
 \centering
 \only<1>{\includegraphics[width=\textwidth]{figures/chapters_topic.pdf}}%
-\only<2>{\includegraphics[width=\textwidth]{figures/chapters.pdf}}%
-\only<3>{\includegraphics[width=\textwidth]{figures/chapters1.pdf}}
+\only<2>{\includegraphics[width=\textwidth]{figures/chapters.pdf}}
+\end{frame}
+
+\begin{frame}{Gibbs Sampling in PSMs}
+\vspace{1em}
+\centering
+\includegraphics[width=\textwidth]{figures/chapters1.pdf}
+\end{frame}
+
+\begin{frame}{Sampling}
+\begin{itemize}
+\item Ground set $\ V = \{1,\ldots,n\}$
+\item State space $\ \Omega = 2^V$
+\item Transition matrix $\ P : \Omega \times \Omega \to \mathbb{R}$
+\end{itemize}
+
+%\vspace{1em}
+\begin{center}
+\includegraphics[width=3.3in]{figures/markov.pdf}
+\end{center}
+
+\vspace{1em}
+Distance from stationarity $\ \ d(t) \defeq \max \left\{\|\mathbb{P}_{X_t} - p\|_{\textrm{tv}} \mid X_0 \in \Omega\right\}$\\[1.5em]
+Under mild conditions, $\ \ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0\ \ \ \ $ {\color{col2} how fast?}\\[1.6em]
+Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}$
+\end{frame}
+
+\begin{frame}{The Gibbs Sampler}
+\vspace{1em}
+\centering
+\only<1>{\includegraphics[width=2.5in]{figures/lattice_gibbs_0.pdf}}%
+\only<2>{\includegraphics[width=2.5in]{figures/lattice_gibbs_1.pdf}}%
+\only<3>{\includegraphics[width=2.5in]{figures/lattice_gibbs_2.pdf}}%
 \end{frame}
 
 \begin{frame}{Improved Mixing using Semigradients}
