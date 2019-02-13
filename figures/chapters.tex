@@ -8,20 +8,29 @@
 \begin{tikzpicture}[
   scale=1.5,
   >=latex,
-  line join=bevel,
-  NS/.style={draw=col1dark,text=col1dark,fill=col1dark,inner sep=0,fill opacity=0.1,text opacity=1,font=\normalsize,line width=1.7pt,minimum width=9.3em,minimum height=7em,rounded corners=1mm},
-  LL/.style={->,line width=0.5pt}
+  NS/.style={draw=col1dark,text=black,fill=col1dark,inner sep=0,fill opacity=0.1,text opacity=1,font=\normalsize,line width=2pt,minimum width=9.3em,minimum height=7em,rounded corners=0pt,font=\sffamily},
+  LL/.style={->,line width=2pt,color=col1dark,line cap=round}
   ]
 
+  \node[draw=col1dark,line width=2pt,inner sep=8pt] (f) at (2.8,3) {\large\sffamily Investigate the use of sampling to perform approximate inference in PSMs};
+  
   \node[NS] (a) at (0,0) {\begin{minipage}{8.5em}\vspace{0.6em}\centering Gibbs Sampling in PSMs\end{minipage}};
   
   \node[NS] (b) at (2.8,0) {\begin{minipage}{8.5em}\vspace{0.6em}\centering Improved Mixing\\using Semigradients \end{minipage}};
   
   \node[NS] (c) at (5.6,0) {\begin{minipage}{8.5em}\vspace{0.6em}\centering Modeling Interactions\\btw. Cancer Mutations\end{minipage}};
   
-  \node[text=col1dark,font=\scriptsize] (c) at (0,0.5) {(Chapter 3)};
-  \node[text=col1dark,font=\scriptsize] (c) at (2.8,0.5) {(Chapter 4)};
-  \node[text=col1dark,font=\scriptsize] (c) at (5.6,0.5) {(Chapter 5)};
+  \node[text=black,font=\sffamily\scriptsize] (e1) at (0,0.5) {(Chapter 3)};
+  \node[text=black,font=\sffamily\scriptsize] (e2) at (2.8,0.5) {(Chapter 4)};
+  \node[text=black,font=\sffamily\scriptsize] (e3) at (5.6,0.5) {(Chapter 5)};
+
+  \draw[LL] (f) to [out=-100,in=80] (a);
+  \draw[LL] (f) to [out=-90,in=90] (b);
+  \draw[LL] (f) to [out=-80,in=100] (c);
+  
+  \node[text=black,font=\sffamily,line width=1pt,draw=col1dark,fill=white,inner sep=4pt,rounded corners=2pt] (t1) at (1.1,1.7) {Theory};
+  \node[text=black,font=\sffamily,line width=1pt,draw=col1dark,fill=white,inner sep=4pt,rounded corners=2pt] (t1) at (2.8,1.7) {Algorithms};
+  \node[text=black,font=\sffamily,line width=1pt,draw=col1dark,fill=white,inner sep=4pt,rounded corners=2pt,rotate=0] (t1) at (4.5,1.7) {Applications};
 \end{tikzpicture}
 
 \end{document}
