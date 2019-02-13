@@ -1,0 +1,23 @@
+\documentclass{standalone}
+
+\usepackage{../core}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  scale=1.5,
+  >=latex,
+  font=\sffamily
+  ]
+  \node[text=textcolor] (fis) at (-1.7,0.02) {$F\ $ is modular if};
+  \node[text=col1] (smod) at (-1.59,0.35) {sub-};
+  \node[text=col2,opacity=0] (smod) at (-1.57,-0.35) {super-};
+  
+  \node[text=textcolor] (eqleft) at (0,0) {$F(A) + F(B)$};
+  \node[text=textcolor] (eqright) at (2.3,0) {$F(A \cup B) + F(A \cap B)$};
+  \node[text=textcolor] (eq) at (1,0) {$=$};
+  \node[text=col1] (geq) at (1,0.34) {$\geq$};
+  \node[text=col2,opacity=0] (leq) at (1,-0.3) {$\leq$};
+\end{tikzpicture}
+
+\end{document}

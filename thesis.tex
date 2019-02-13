@@ -212,6 +212,61 @@ Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsi
 \only<3>{\includegraphics[width=2.5in]{figures/lattice_gibbs_2.pdf}}%
 \end{frame}
 
+\begin{frame}{The Gibbs Sampler}
+\begin{center}
+\includegraphics[width=1.4in]{figures/lattice_gibbs_2.pdf}
+\end{center}
+
+For general PSMs, mixing times are exponential in $|V| = n$ \qcitea{Jerrum and Sinclair, 1993}
+
+\vspace{1em}
+\centering
+\qboxa{\minibox{We establish sufficient conditions for sub-exponential mixing\\of the Gibbs sampler on PSMs.}}
+\end{frame}
+
+\begin{frame}{Polynomial-time Mixing}
+\vspace{0.5em}
+\only<1>{\includegraphics[width=3.9in]{figures/ineq_mod_0.pdf}}%
+\only<2>{\includegraphics[width=3.9in]{figures/ineq_mod_1.pdf}}%
+\only<3->{\includegraphics[width=3.9in]{figures/ineq_mod_2.pdf}}%
+
+\uncover<4>{%
+\vspace{1em}
+``Distance" from modularity
+\begin{align*}
+\zeta_F \defeq \max_{A, B \subseteq V} \big|F(A) + F(B) - F(A \cup B) - F(A \cap B)\big|
+\end{align*}
+}
+
+\uncover<4>{%
+\qtheorem{1}{
+For any sub- or supermodular set function $F$, the mixing time of the Gibbs sampler is
+\begin{align*}
+t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}\right).
+\end{align*}
+}}
+\end{frame}
+
+\begin{frame}{Proof Outline}
+\vspace{0.5em}
+\uncover<2->{%
+\only<2-3>{Construct a ``canonical path'' between each $S, R \subseteq V$ \qcitea{Sinclair, 1992}}
+\only<4>{Need to route $p(S)p(R)$ amount of flow between each $S, R \subseteq V$}
+\only<5>{The Markov chain transition probabilities determine the edge capacities}
+\only<6>{Congestion of an edge $\ \sim\ $ (total flow through edge) / capacity}
+\only<7-8>{$t_{\mathrm{mix}}(\epsilon) = \mathcal{O}\left(\max\{\textrm{congestion}\}\log \epsilon^{-1}\right)$ \qcitea{Sinclair, 1992}}
+}
+\vspace{1em}
+
+\only<1>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_nopath.pdf}}%
+\only<2>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_path_1.pdf}}%
+\only<3>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_path_4.pdf}}%
+\only<4>{\includegraphics[width=0.9\textwidth]{figures/cp_easy.pdf}}%
+\only<5>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_cap.pdf}}%
+\only<6-7>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_cong.pdf}}%
+\only<8>{\includegraphics[width=0.9\textwidth]{figures/cp_hard_cong.pdf}}%
+\end{frame}
+
 \begin{frame}{Improved Mixing using Semigradients}
 \centering
 \includegraphics[width=\textwidth]{figures/chapters2.pdf}
