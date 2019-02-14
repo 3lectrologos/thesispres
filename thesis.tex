@@ -2,18 +2,15 @@
 
 \usepackage{thesis}
 \usepackage{pdfpages}
+\usepackage{array}
+\usepackage{booktabs}
+
 
 \title[Sampling from Probabilistic Submodular Models]
 {Sampling from Probabilistic Submodular Models}
 
 \author[Alkis Gotovos]{}
 
-
-\newcommand{\btheta}{\*\theta}
-\newcommand{\bu}{\*u}
-\newcommand{\bw}{\*w}
-\newcommand{\bv}{\*v}
-\newcommand{\defeq}{\vcentcolon=}
 
 \newcommand{\tab}[2]{%
 \makebox[#1\linewidth][l]{#2}%
@@ -186,7 +183,7 @@ Fundamental tasks
 \includegraphics[width=\textwidth]{figures/chapters1.pdf}
 \end{frame}
 
-\begin{frame}{Sampling}
+\begin{frame}{Sampling\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
 \begin{itemize}
 \item Ground set $\ V = \{1,\ldots,n\}$
 \item State space $\ \Omega = 2^V$
@@ -204,7 +201,7 @@ Under mild conditions, $\ \ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0\ \ \
 Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}$
 \end{frame}
 
-\begin{frame}{The Gibbs Sampler}
+\begin{frame}{The Gibbs Sampler\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
 \vspace{1em}
 \centering
 \only<1>{\includegraphics[width=2.5in]{figures/lattice_gibbs_0.pdf}}%
@@ -212,7 +209,7 @@ Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsi
 \only<3>{\includegraphics[width=2.5in]{figures/lattice_gibbs_2.pdf}}%
 \end{frame}
 
-\begin{frame}{The Gibbs Sampler}
+\begin{frame}{The Gibbs Sampler\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
 \begin{center}
 \includegraphics[width=1.4in]{figures/lattice_gibbs_2.pdf}
 \end{center}
@@ -224,7 +221,7 @@ For general PSMs, mixing times are exponential in $|V| = n$ \qcitea{Jerrum and S
 \qboxa{\minibox{We establish sufficient conditions for sub-exponential mixing\\of the Gibbs sampler on PSMs.}}
 \end{frame}
 
-\begin{frame}{Polynomial-time Mixing}
+\begin{frame}{Polynomial-time Mixing\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
 \vspace{0.5em}
 \only<1>{\includegraphics[width=3.9in]{figures/ineq_mod_0.pdf}}%
 \only<2>{\includegraphics[width=3.9in]{figures/ineq_mod_1.pdf}}%
@@ -247,7 +244,7 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 }}
 \end{frame}
 
-\begin{frame}{Proof Outline}
+\begin{frame}{Proof Outline\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
 \vspace{0.5em}
 \uncover<2->{%
 \only<2-3>{Construct a ``canonical path'' between each $S, R \subseteq V$ \qcitea{Sinclair, 1992}}
@@ -270,6 +267,118 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 \begin{frame}{Improved Mixing using Semigradients}
 \centering
 \includegraphics[width=\textwidth]{figures/chapters2.pdf}
+\end{frame}
+
+\begin{frame}{Bottlenecks\hfill\includegraphics[width=0.6in]{figures/chapters2.pdf}}
+\vspace{1em}
+\centering
+\only<1>{\includegraphics[width=0.9\textwidth]{figures/cp_hard_cong.pdf}}%
+\only<2>{\includegraphics[width=0.9\textwidth]{figures/bottleneck1.pdf}}%
+\only<3>{\includegraphics[width=0.9\textwidth]{figures/bottleneck2.pdf}}%
+\end{frame}
+
+
+\newcommand*\circled[1]{\tikz[baseline=-0.3ex,anchor=base]{\node[shape=circle,draw,inner sep=1.5pt] (char) {\scriptsize #1};}}
+\begin{frame}{The \Ms{} Chain}
+\vspace{0.8em}
+\hspace{3pt} \Ms{} = Mixture of Log-Modulars Metropolis
+
+\vspace{-1em}
+\uncover<2->{
+\renewcommand{\arraystretch}{1}
+\begin{tabular}{>{\arraybackslash}p{0.28\textwidth}>{\arraybackslash}p{0.71\textwidth}}
+
+\begin{minipage}[t]{\textwidth}
+\vspace{1.8em}
+\only<7-8>{\color{col2}} \circled{1}\hspace{0.3em} Mixture
+\end{minipage}
+&
+\begin{minipage}[t]{\textwidth}
+\uncover<8->{%
+\vspace{1em}
+\only<1-10>{$q(S, T) = \displaystyle\frac{1}{Z_q} \sum_{i = 1}^{r} w_i\exp\left(m_i(T) \right)$}%
+\only<11->{${\color{col2}q(T)} = \displaystyle\frac{1}{Z_q} \sum_{i = 1}^{r} w_i\exp\left(m_i(T) \right)$}
+\vspace{1em}%
+}
+\end{minipage}
+\\ \midrule
+
+\begin{minipage}[t]{\textwidth}
+\vspace{1.15em}
+\only<9-10>{\color{col2}} \circled{2}\hspace{0.3em} Log-Modulars
+\end{minipage}
+&
+\begin{minipage}[t]{\textwidth}
+\uncover<10->{
+\vspace{1em}
+$m_i(T) = \displaystyle\sum_{v \in T} m_{iv}$
+\vspace{1em}
+}
+\end{minipage}
+\\ \midrule
+
+\begin{minipage}[t]{\textwidth}
+\vspace{2.45em}
+\only<3-6>{\color{col2}} \circled{3}\hspace{0.3em} Metropolis
+\end{minipage}
+&
+\begin{minipage}[t]{\textwidth}
+\vspace{1em}
+\begin{itemize}
+\item<4-> Target $\ p(S) \propto \exp(F(S))$
+\vspace{0.15em}
+\item<5-> \only<5-10>{Proposal $\ q(S, T)$}%
+\only<11->{Proposal \color{col2} $\ q(T)$}%
+\item<6-> Accept with probability%
+\only<6-10>{$\ \ \min\left\{1, \frac{p(T)q(T, S)}{p(S)q(S, T)}\right\}$}%
+\only<11->{$\ \ \min\left\{1, \frac{p(T)\color{col2}q(S)}{p(S)\color{col2}q(T)}\right\}$}%
+\end{itemize}
+\vspace{1em}
+\end{minipage}
+
+\end{tabular}
+}
+\end{frame}
+
+\begin{frame}{The Combined Chain}
+\vspace{0.5em}
+Gibbs step with prob. $\delta$ \hspace{1em}|\hspace{1em} \Ms{} step with prob. $1 - \delta$
+
+\uncover<2->{%
+\vspace{2em}
+\centering
+\only<1-2>{\includegraphics[width=\textwidth]{figures/decomposition1.pdf}}%
+\only<3>{\includegraphics[width=\textwidth]{figures/decomposition2.pdf}}%
+\only<4>{\includegraphics[width=\textwidth]{figures/decomposition.pdf}}%
+}
+\end{frame}
+
+\begin{frame}{Constructing the Mixture}
+\vspace{0.5em}
+\only<1-6>{Construction}\only<7>{{\color{col2}Randomized} construction}\only<8->{{\color{col1dark}Iterative} construction} of $\ q(\cdot) \propto \displaystyle\sum_{i = 1}^{r} \exp\left(m_i(\cdot) \right)$
+
+\uncover<2->{%
+\vspace{3em}
+\begin{algorithmic}
+  \REQUIRE Set function $F$, mixture size $r$
+  \vspace{0.5em}
+  \FOR{$i = 1$ \TO $r$}
+  \vspace{0.3em}
+  \LET{$\sigma$}{\only<1-6>{Permutation of $V$}\only<7>{{\color{col2}Random permutation of $V$}}\only<8->{{\color{col1dark}\textsc{Greedy}$\Big(F(\cdot) - \log\sum_{j = 1}^{i-1} \exp(m_j(\cdot))\Big)$}}}
+  \vspace{0.3em}
+  \LET{$m_i$}{\only<1-2>{Modular function that approximates $F$ at $\sigma$}\only<3-6>{\color{col2}\textsc{SemiGradient}$\left(F, \sigma\right)$}\only<7->{\textsc{SemiGradient}($F$, $\sigma$)}}
+  \vspace{0.3em}
+  \ENDFOR
+  \RETURN $\{m_1, \ldots, m_r\}$
+\end{algorithmic}%
+}
+\vspace{4em}
+\end{frame}
+
+\begin{frame}{Benefit of Combined Chain}
+\vspace{1em}
+\centering
+\includegraphics[width=\textwidth]{figures/exp3.pdf}
 \end{frame}
 
 \begin{frame}{Modeling Interactions between Cancer Mutations}

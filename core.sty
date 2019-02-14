@@ -6,10 +6,7 @@
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.geometric,positioning,calc,tikzmark}
 \RequirePackage{amsmath,amssymb}
-%\RequirePackage{moresize}
 
-%\RequirePackage{xunicode}
-%\RequirePackage{xltxtra}
 
 \RequirePackage{fontspec}
 \usepackage[libertine]{newtxmath}
@@ -114,6 +111,35 @@
 \newcommand{\qcitea}[2][\scriptsize]{{#1\color{col1dark}(#2)}}
 \newcommand{\qciteb}[2][\scriptsize]{{#1\color{col2}(#2)}}
 
+
+% Algorithm related
+\RequirePackage{algorithm}
+\RequirePackage[noend]{algorithmic}
+
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand*\LNot{\textbf{not}\xspace}
+\newcommand*\LAnd{\textbf{and}\xspace}
+\newcommand*\LET[2]{\STATE #1 $\gets$ #2}
+\newcommand*\Fcall[1]{\textsc{#1}}
+\makeatletter
+\newcommand{\setalglineno}[1]{%
+	\setcounter{ALC@line}{\numexpr#1-1}}
+\makeatother
+\renewcommand{\algorithmiccomment}[1]{// #1}
+\newcommand{\LINEIF}[2]{%
+	\STATE\algorithmicif\ {#1}\ \algorithmicthen\ {#2}%
+}
+\newcommand{\LINEELSE}[1]{%
+	\STATE\algorithmicelse\ {#1}%
+}
+\newcommand{\LINEIFELSE}[3]{%
+	\STATE\algorithmicif\ {#1}\ \algorithmicthen\ {#2}\ \algorithmicelse\ {#3}%
+}
+
+% Math definitions
+
 \RequirePackage{enumitem}
 \setlist[itemize,1]{label=\raisebox{1.2pt}{\scriptsize$\circ$}}
 
@@ -121,3 +147,10 @@
 
 \RequirePackage{bm}
 \def\*#1{\bm{#1}}
+
+\newcommand{\btheta}{\*\theta}
+\newcommand{\bu}{\*u}
+\newcommand{\bw}{\*w}
+\newcommand{\bv}{\*v}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\Ms}{\textsf{M\textsuperscript{3}}}
