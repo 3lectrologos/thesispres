@@ -183,7 +183,7 @@ Fundamental tasks
 \includegraphics[width=\textwidth]{figures/chapters1.pdf}
 \end{frame}
 
-\begin{frame}{Sampling\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
+\begin{frame}{Sampling}
 \begin{itemize}
 \item Ground set $\ V = \{1,\ldots,n\}$
 \item State space $\ \Omega = 2^V$
@@ -201,7 +201,7 @@ Under mild conditions, $\ \ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0\ \ \
 Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}$
 \end{frame}
 
-\begin{frame}{The Gibbs Sampler\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
+\begin{frame}{The Gibbs Sampler}
 \vspace{1em}
 \centering
 \only<1>{\includegraphics[width=2.5in]{figures/lattice_gibbs_0.pdf}}%
@@ -209,7 +209,7 @@ Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsi
 \only<3>{\includegraphics[width=2.5in]{figures/lattice_gibbs_2.pdf}}%
 \end{frame}
 
-\begin{frame}{The Gibbs Sampler\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
+\begin{frame}{The Gibbs Sampler}
 \begin{center}
 \includegraphics[width=1.4in]{figures/lattice_gibbs_2.pdf}
 \end{center}
@@ -221,7 +221,7 @@ For general PSMs, mixing times are exponential in $|V| = n$ \qcitea{Jerrum and S
 \qboxa{\minibox{We establish sufficient conditions for sub-exponential mixing\\of the Gibbs sampler on PSMs.}}
 \end{frame}
 
-\begin{frame}{Polynomial-time Mixing\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
+\begin{frame}{Polynomial-time Mixing}
 \vspace{0.5em}
 \only<1>{\includegraphics[width=3.9in]{figures/ineq_mod_0.pdf}}%
 \only<2>{\includegraphics[width=3.9in]{figures/ineq_mod_1.pdf}}%
@@ -244,7 +244,7 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 }}
 \end{frame}
 
-\begin{frame}{Proof Outline\hfill\includegraphics[width=0.6in]{figures/chapters1.pdf}}
+\begin{frame}{Proof Outline}
 \vspace{0.5em}
 \uncover<2->{%
 \only<2-3>{Construct a ``canonical path'' between each $S, R \subseteq V$ \qcitea{Sinclair, 1992}}
@@ -269,7 +269,7 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 \includegraphics[width=\textwidth]{figures/chapters2.pdf}
 \end{frame}
 
-\begin{frame}{Bottlenecks\hfill\includegraphics[width=0.6in]{figures/chapters2.pdf}}
+\begin{frame}{Bottlenecks}
 \vspace{1em}
 \centering
 \only<1>{\includegraphics[width=0.9\textwidth]{figures/cp_hard_cong.pdf}}%
@@ -384,6 +384,63 @@ Gibbs step with prob. $\delta$ \hspace{1em}|\hspace{1em} \Ms{} step with prob. $
 \begin{frame}{Modeling Interactions between Cancer Mutations}
 \centering
 \includegraphics[width=\textwidth]{figures/chapters3.pdf}
+\end{frame}
+
+\begin{frame}{Approximate Maximum Likelihood Learning}
+\vspace{-1em}
+Data $\ \mathcal{D} = \{D_1,\ldots, D_N\}$
+
+\uncover<2->{%
+\only<1-2>{%
+\vspace{3em}
+\centering
+\includegraphics[width=3.7in]{figures/example1.pdf}
+}%
+\only<3->{%
+\begin{align*}
+\ell(\btheta) &= \sum_{i=1}^N F(D_i; \btheta) - N \log Z(\btheta)\\[1em]
+\uncover<4->{\nabla_{\btheta} \ell(\btheta) &= \frac{1}{N}\sum_{i=1}^N \nabla_{\btheta} F(D_i; \btheta) - \alt<4>{}{\color{col2}}\mathbb{E}_{p}\left[ \nabla_{\btheta} F(S; \btheta)\right]\\[0.5em]}
+\uncover<6->{&\approx \frac{1}{N}\sum_{i=1}^N \nabla_{\btheta} F(D_i; \btheta) - \color{col2}\frac{1}{M}\sum_{i=1}^M \nabla_{\btheta} F(S_i; \btheta)}
+\end{align*}
+}%
+}
+\end{frame}
+
+\begin{frame}{The FLiD Model \qcitea{Tschiatscheck et al., 2016}}
+\centering
+\only<1>{\includegraphics[height=0.9\textheight]{figures/mat_syn.pdf}}%
+\only<2>{\includegraphics[height=0.9\textheight]{figures/mat_syn_1.pdf}}%
+\only<3>{\includegraphics[height=0.9\textheight]{figures/mat_syn_2.pdf}}
+\end{frame}
+
+\begin{frame}{Synthetic Data}
+$t\ $ groups of $k\ $ elements\\
+\vspace{1em}
+\centering
+\only<1>{\includegraphics[width=0.93\textwidth]{figures/syn_multi_one.pdf}}%
+\only<2>{\includegraphics[width=0.93\textwidth]{figures/syn_multi.pdf}}%
+\end{frame}
+
+\begin{frame}{Real Cancer Data (TCGA AML)}
+\vspace{1em}
+\centering
+\includegraphics[width=0.85\textwidth]{figures/aml_1.pdf}\\[2em]
+\includegraphics[width=0.85\textwidth]{figures/aml_3.pdf}
+\end{frame}
+
+\begin{frame}{Real Cancer Data (TCGA AML)}
+\vspace{1em}
+\centering
+\includegraphics[width=0.65\textwidth]{figures/graph_aml.pdf}
+\end{frame}
+
+\begin{frame}{Summary}
+\vspace{1em}
+\centering
+\only<1>{\includegraphics[width=\textwidth]{figures/chapters_end_1.pdf}}%
+\only<2>{\includegraphics[width=\textwidth]{figures/chapters_end_2.pdf}}%
+\only<3>{\includegraphics[width=\textwidth]{figures/chapters_end_3.pdf}}%
+\only<4>{\includegraphics[width=\textwidth]{figures/chapters_end.pdf}}%
 \end{frame}
 
 \end{document}

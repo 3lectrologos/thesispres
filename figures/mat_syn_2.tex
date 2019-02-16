@@ -1,0 +1,69 @@
+\documentclass{standalone}
+
+\usepackage{../core}
+
+\def\ystep{0.2223in}
+\def\yoff{0in}
+\def\yg{17.9}
+\def\xgstep{0.525}
+\def\xshift{-50}
+
+\begin{document}
+\begin{tikzpicture}[
+  C/.style={circle,
+            draw=darkcolor,
+            line width=0.7pt,
+            text=textcolor,
+            inner sep=4pt
+            },
+  G/.style={anchor=south,
+            text=textcolor,
+            inner sep=0pt
+            },
+  M/.style={anchor=south west,
+            draw=darkcolor,
+            thin,
+            inner sep=1pt
+            },
+  N/.style={text=textcolor,
+            anchor=south east,
+            inner sep=0pt,
+            xshift=-2.43in
+            },
+  Z/.style={draw=col3,
+            inner sep=3pt,
+            line width=2pt,
+            minimum width=13pt,
+            minimum height=8pt
+            }
+]
+
+\node[C] at (-1.33,13.5) {\large $\*u$};
+\node[C] at (3.65,13.5) {\large $\*w$};
+
+\node[M] at (-2,0) {\includegraphics[height=5in]{mat_syn_u.png}};
+\node[M] at (1,0) {\includegraphics[height=5in]{mat_syn_w.png}};
+
+\node[N,xshift=\xshift,yshift=352.5] at (current page.south) {\small \sffamily \strut 1};
+\node[N,xshift=\xshift,yshift=271] at (current page.south) {\small \sffamily \strut 10};
+\node[N,xshift=\xshift,yshift=179] at (current page.south) {\small \sffamily \strut 20};
+\node[N,xshift=\xshift,yshift=90] at (current page.south) {\small \sffamily \strut 30};
+\node[N,xshift=\xshift,yshift=-1.5] at (current page.south) {\small \sffamily \strut 40};
+
+
+\node[Z] at (3.41,12.27) {};
+\node[Z] at (3.41,8.14) {};
+\node[Z] at (3.41,7.19) {};
+\draw[-latex,line width=1.5pt,color=col3] (2.53,12.27) -- (3.13,12.27);
+\draw[-latex,line width=1.5pt,color=col3] (2.53,8.14) -- (3.13,8.14);
+\draw[-latex,line width=1.5pt,color=col3] (2.53,7.19) -- (3.13,7.19);
+
+
+\node[Z,color=col2] at (4.46,11.63) {};
+\node[Z,color=col2] at (4.46,9.73) {};
+\node[Z,color=col2] at (4.46,5.91) {};
+\draw[-latex,line width=1.5pt,color=col2] (5.33,11.63) -- (4.73,11.63);
+\draw[-latex,line width=1.5pt,color=col2] (5.33,9.73) -- (4.73,9.73);
+\draw[-latex,line width=1.5pt,color=col2] (5.33,5.91) -- (4.73,5.91);
+\end{tikzpicture}
+\end{document}
