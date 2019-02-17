@@ -54,11 +54,11 @@
 \vspace{3em}
 
 \begin{itemize}
-\item \tab{0.4}{Discrete optimization \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} probabilistic models \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
+\item<2-> \tab{0.4}{Discrete optimization \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} probabilistic models \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
 \vspace{0.7em}
-\item \tab{0.4}{Classic pairwise models \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} higher-order interactions \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
+\item<3-> \tab{0.4}{Classic pairwise models \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} higher-order interactions \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
 \vspace{0.7em}
-\item \tab{0.4}{Deep nets \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} structured prior assumptions \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
+\item<4-> \tab{0.4}{Deep nets \hspace{0.3em} \includegraphics[width=0.13in]{figures/cross_mark.png}} \tab{0.15}{$\longrightarrow$} structured prior assumptions \hspace{0.3em} \includegraphics[width=0.13in]{figures/check_mark.png}
 \end{itemize}
 \end{frame}
 
@@ -77,18 +77,20 @@ $p(S; \btheta) = \displaystyle\frac{1}{Z(\btheta)}\exp \big( F(S; \btheta) \big)
 \begin{columns}
 \begin{column}{0.54\textwidth}
 \begin{itemize}
-\item $F : 2^V \to \mathbb{R}\ $ is sub- or supermodular
-\item $Z\ $ is the normalizer
-\item $\btheta\ $ is a parameter vector
+\item<2-> $F : 2^V \to \mathbb{R}\ $ is sub- or supermodular
+\item<2-> $Z\ $ is the normalizer
+\item<2-> $\btheta\ $ is a parameter vector
 \end{itemize}
 \vspace{0.6em}
 \end{column}
 \begin{column}{0.39\textwidth}
+\uncover<3->{%
 Well-studied subclasses
 \begin{itemize}
 \item Ising model (log-supermodular)
 \item DPP (log-submodular)
 \end{itemize}
+}
 \end{column}
 \end{columns}
 
@@ -105,15 +107,18 @@ $p(S; \btheta) = \displaystyle\frac{1}{Z(\btheta)}\exp \big( F(S; \btheta) \big)
 \end{center}
 \vspace{2em}
 
+\uncover<2->{%
 Fundamental tasks
+}
 \vspace{0.5em}
 \hspace{11em}\tikzmark{right}
 \begin{itemize}
-\item Compute marginals $\ \mathbb{P}(a \in S \mid \{b, c\} \subseteq S)$ \tikzmark{i2}
-\item Compute $\ Z$ \tikzmark{i3}
-\item Learn $\btheta$ from data
+\item<3-> Compute marginals $\ \mathbb{P}(a \in S \mid \{b, c\} \subseteq S)$ \tikzmark{i2}
+\item<3-> Compute $\ Z$ \tikzmark{i3}
+\item<5> Learn $\btheta$ from data
 \end{itemize}
 
+\uncover<4->{%
 \begin{tikzpicture}[overlay, remember picture]
 \node[anchor=base] (a) at (pic cs:i2) {\vphantom{h}}; % push the mark to the top of the line (ie including ascenders)
 \node[anchor=base] (b) at (pic cs:i3) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
@@ -121,6 +126,7 @@ Fundamental tasks
  (a.north -| {pic cs:right}) -- (b.south -| {pic cs:right});
 \node [text=col2,xshift=10.4em] (t) at ($(a)!0.5!(b)$) {\#P-hard in general};
 \end{tikzpicture}
+}
 
 \end{frame}
 
@@ -140,7 +146,7 @@ Fundamental tasks
 \end{columns}
 \end{minipage}
 
-%\uncover<2->{
+\uncover<2->{%
 \vspace{2em}
 \begin{minipage}{\textwidth}
 \begin{columns}[c]
@@ -154,9 +160,9 @@ Fundamental tasks
 \end{itemize}
 \end{columns}
 \end{minipage}
-%}
+}
 
-%\uncover<3->{
+\uncover<3->{%
 \vspace{2em}
 \begin{minipage}{\textwidth}
 \begin{columns}[c]
@@ -169,7 +175,7 @@ Fundamental tasks
 \end{itemize}
 \end{columns}
 \end{minipage}
-%}
+}
 \end{frame}
 
 \begin{frame}{Thesis Topic}
@@ -177,6 +183,23 @@ Fundamental tasks
 \centering
 \only<1>{\includegraphics[width=\textwidth]{figures/chapters_topic.pdf}}%
 \only<2>{\includegraphics[width=\textwidth]{figures/chapters.pdf}}
+\end{frame}
+
+\begin{frame}{Publications}
+\small
+\begin{itemize}
+\item P. Wenk, A. Gotovos, S. Bauer, N. S. Gorbach, A. Krause, J. Buhmann. Fast Gaussian Process Based Gradient Matching for Parameter Identification in Systems of Nonlinear ODEs. \emph{AISTATS}, 2019.
+\vspace{0.5em}
+\item {\color{col1dark}A. Gotovos, H. Hassani, A. Krause, S. Jegelka. Discrete Sampling using Semigradient-based Product Mixtures. \emph{UAI}, 2018.}
+\vspace{0.5em}
+\item {\color{col1dark}A. Gotovos, H. Hassani, A. Krause. Sampling from Probabilistic Submodular Models. \emph{NIPS}, 2015.}
+\vspace{0.5em}
+\item Y. Sui, A. Gotovos, J. W. Burdick, A. Krause. Safe Exploration for Optimization with Gaussian Processes. \emph{ICML}, 2015.
+\vspace{0.5em}
+\item A. Gotovos, A. Karbasi, A. Krause. Non-monotone Adaptive Submodular Maximization. \emph{IJCAI}, 2015.
+\vspace{0.5em}
+\item L. Heng, A. Gotovos, A. Krause, M. Pollefeys. Efficient Visual Exploration and Coverage with a Micro Aerial Vehicle in Unknown Environments. \emph{ICRA}, 2015.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Gibbs Sampling in PSMs}
@@ -198,9 +221,10 @@ Fundamental tasks
 \end{center}
 
 \vspace{1em}
-Distance from stationarity $\ \ d(t) \defeq \max \left\{\|\mathbb{P}_{X_t} - p\|_{\textrm{tv}} \mid X_0 \in \Omega\right\}$\\[1.5em]
-Under mild conditions, $\ \ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0\ \ \ \ $ {\color{col2} how fast?}\\[1.6em]
-Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}$
+\uncover<2->{%
+Distance from stationarity $\ \ d(t) \defeq \max \left\{\|\mathbb{P}_{X_t} - p\|_{\textrm{tv}} \mid X_0 \in \Omega\right\}$}\\[1.5em]
+\uncover<3->{Under mild conditions, $\ \ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0\ \ \ \ $}\uncover<4->{{\color{col2} how fast?}}\\[1.6em]
+\uncover<5->{Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}$}
 \end{frame}
 
 \begin{frame}{The Gibbs Sampler}
@@ -216,7 +240,8 @@ Mixing time $\ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsi
 \includegraphics[width=1.4in]{figures/lattice_gibbs_2.pdf}
 \end{center}
 
-For general PSMs, mixing times are exponential in $|V| = n$ \qcitea{Jerrum and Sinclair, 1993}
+\centering
+Mixing times are in general exponential in $|V|$ \qcitea{Jerrum and Sinclair, 1993}
 
 \vspace{1em}
 \centering
@@ -229,7 +254,7 @@ For general PSMs, mixing times are exponential in $|V| = n$ \qcitea{Jerrum and S
 \only<2>{\includegraphics[width=3.9in]{figures/ineq_mod_1.pdf}}%
 \only<3->{\includegraphics[width=3.9in]{figures/ineq_mod_2.pdf}}%
 
-\uncover<4>{%
+\uncover<4->{%
 \vspace{1em}
 ``Distance" from modularity
 \begin{align*}
@@ -237,7 +262,7 @@ For general PSMs, mixing times are exponential in $|V| = n$ \qcitea{Jerrum and S
 \end{align*}
 }
 
-\uncover<4>{%
+\uncover<5>{%
 \qtheorem{1}{
 For any sub- or supermodular set function $F$, the mixing time of the Gibbs sampler is
 \begin{align*}
@@ -357,7 +382,7 @@ Gibbs step with prob. $\delta$ \hspace{1em}|\hspace{1em} \Ms{} step with prob. $
 
 \begin{frame}{Constructing the Mixture}
 \vspace{0.5em}
-\only<1-6>{Construction}\only<7>{{\color{col2}Randomized} construction}\only<8->{{\color{col1dark}Iterative} construction} of $\ q(\cdot) \propto \displaystyle\sum_{i = 1}^{r} \exp\left(m_i(\cdot) \right)$
+\only<1-3>{Construction}\only<4->{{\color{col1dark}Iterative} construction} of $\ q(\cdot) \propto \displaystyle\sum_{i = 1}^{r} \exp\left(m_i(\cdot) \right)$
 
 \uncover<2->{%
 \vspace{3em}
@@ -366,9 +391,9 @@ Gibbs step with prob. $\delta$ \hspace{1em}|\hspace{1em} \Ms{} step with prob. $
   \vspace{0.5em}
   \FOR{$i = 1$ \TO $r$}
   \vspace{0.3em}
-  \LET{$\sigma$}{\only<1-6>{Permutation of $V$}\only<7>{{\color{col2}Random permutation of $V$}}\only<8->{{\color{col1dark}\textsc{Greedy}$\Big(F(\cdot) - \log\sum_{j = 1}^{i-1} \exp(m_j(\cdot))\Big)$}}}
+  \LET{$\sigma$}{\only<1-3>{Permutation of $V$}\only<4->{{\color{col1dark}\textsc{Greedy}$\left(F(\cdot) - \log\displaystyle\sum_{j = 1}^{i-1} \exp(m_j(\cdot))\right)$}}}
   \vspace{0.3em}
-  \LET{$m_i$}{\only<1-2>{Modular function that approximates $F$ at $\sigma$}\only<3-6>{\color{col2}\textsc{SemiGradient}$\left(F, \sigma\right)$}\only<7->{\textsc{SemiGradient}($F$, $\sigma$)}}
+  \LET{$m_i$}{\only<1-2>{Modular function that approximates $F$ at $\sigma$}\only<3->{\color{col2}\textsc{SemiGradient}$\left(F, \sigma\right)$}}%\only<4->{\textsc{SemiGradient}($F$, $\sigma$)}}
   \vspace{0.3em}
   \ENDFOR
   \RETURN $\{m_1, \ldots, m_r\}$
@@ -380,7 +405,9 @@ Gibbs step with prob. $\delta$ \hspace{1em}|\hspace{1em} \Ms{} step with prob. $
 \begin{frame}{Benefit of Combined Chain}
 \vspace{1em}
 \centering
-\includegraphics[width=\textwidth]{figures/exp3.pdf}
+\only<1>{\includegraphics[width=\textwidth]{figures/exp3_1.pdf}}%
+\only<2>{\includegraphics[width=\textwidth]{figures/exp3_2.pdf}}%
+\only<3>{\includegraphics[width=\textwidth]{figures/exp3_3.pdf}}%
 \end{frame}
 
 \begin{frame}{Modeling Interactions between Cancer Mutations}
