@@ -208,7 +208,7 @@ Fundamental tasks
 \includegraphics[width=\textwidth]{figures/chapters1.pdf}
 \end{frame}
 
-\begin{frame}{Sampling}
+\begin{frame}{MCMC Sampling}
 \begin{itemize}
 \item Ground set $\ V = \{1,\ldots,n\}$
 \item State space $\ \Omega = 2^V$
@@ -273,22 +273,19 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 
 \begin{frame}{Proof Outline}
 \vspace{0.5em}
-\uncover<2->{%
-\only<2-3>{Construct a ``canonical path'' between each $S, R \subseteq V$ \qcitea{Sinclair, 1992}}
-\only<4>{Need to route $p(S)p(R)$ amount of flow between each $S, R \subseteq V$}
-\only<5>{The Markov chain transition probabilities determine the edge capacities}
-\only<6>{Congestion of an edge $\ \sim\ $ (total flow through edge) / capacity}
-\only<7-8>{$t_{\mathrm{mix}}(\epsilon) = \mathcal{O}\left(\max\{\textrm{congestion}\}\log \epsilon^{-1}\right)$ \qcitea{Sinclair, 1992}}
-}
+\only<1>{Need to route $p(S)p(R)$ amount of flow between each $S, R \subseteq V$\qcitea{Sinclair, 1992}}
+\only<2-3>{Construct a ``canonical path'' between each $S, R \subseteq V$}
+\only<4>{The Markov chain transition probabilities determine the edge capacities}
+\only<5>{Congestion of an edge $\ \sim\ $ (total flow through edge) / capacity}
+\only<6-7>{$t_{\mathrm{mix}}(\epsilon) = \mathcal{O}\left(\max\{\textrm{congestion}\}\log \epsilon^{-1}\right)$ \qcitea{Sinclair, 1992}}
 \vspace{1em}
 
-\only<1>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_nopath.pdf}}%
+\only<1>{\includegraphics[width=0.9\textwidth]{figures/cp_easy.pdf}}%
 \only<2>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_path_1.pdf}}%
 \only<3>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_path_4.pdf}}%
-\only<4>{\includegraphics[width=0.9\textwidth]{figures/cp_easy.pdf}}%
-\only<5>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_cap.pdf}}%
-\only<6-7>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_cong.pdf}}%
-\only<8>{\includegraphics[width=0.9\textwidth]{figures/cp_hard_cong.pdf}}%
+\only<4>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_cap.pdf}}%
+\only<5-6>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_cong.pdf}}%
+\only<7>{\includegraphics[width=0.9\textwidth]{figures/cp_hard_cong.pdf}}%
 \end{frame}
 
 \begin{frame}{Improved Mixing using Semigradients}
