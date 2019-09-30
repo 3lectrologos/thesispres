@@ -33,8 +33,8 @@
 \begin{frame}{The Cancer Genome Atlas}
 \vspace{0.5em}
 \centering
-\includegraphics[width=3.85in]{figures/pathways_new.png}\\[-0.7em]
-\hspace{22em}\qsource{Schultz et al., 2018}
+\includegraphics[width=\textwidth]{figures/pathways_alt.png}\\[-0.3em]
+\hfill{}\qsource{genome.jp}
 \end{frame}
 
 \begin{frame}{Modeling Interactions between Gene Mutations}
@@ -186,26 +186,6 @@ Fundamental tasks
 \only<2>{\includegraphics[width=\textwidth]{figures/chapters.pdf}}
 \end{frame}
 
-\begin{frame}{Publications}
-\vspace{0.5em}
-\small
-\begin{itemize}
-\item P. Wenk, A. Gotovos, S. Bauer, N. S. Gorbach, A. Krause, J. Buhmann. Fast Gaussian Process Based Gradient Matching for Parameter Identification in Systems of Nonlinear ODEs. \emph{AISTATS}, 2019.
-\vspace{0.5em}
-\item {\color{col1dark}A. Gotovos, H. Hassani, A. Krause, S. Jegelka. Discrete Sampling using Semigradient-based Product Mixtures. \emph{UAI}, 2018.}
-\vspace{0.5em}
-\item {\color{col1dark}A. Gotovos, H. Hassani, A. Krause. Sampling from Probabilistic Submodular Models. \emph{NIPS}, 2015.}
-\vspace{0.5em}
-\item Y. Sui, A. Gotovos, J. W. Burdick, A. Krause. Safe Exploration for Optimization with Gaussian Processes. \emph{ICML}, 2015.
-\vspace{0.5em}
-\item A. Gotovos, A. Karbasi, A. Krause. Non-monotone Adaptive Submodular Maximization. \emph{IJCAI}, 2015.
-\vspace{0.5em}
-\item L. Heng, A. Gotovos, A. Krause, M. Pollefeys. Efficient Visual Exploration and Coverage with a Micro Aerial Vehicle in Unknown Environments. \emph{ICRA}, 2015.
-\vspace{0.5em}
-\item G. Hitz, A. Gotovos, F. Pomerleau, M. E. Garneau, C. Pradalier, A. Krause, R. Siegwart. Fully Autonomous Focused Exploration for Robotic Environmental Monitoring. \emph{ICRA}, 2014.
-\end{itemize}
-\end{frame}
-
 \begin{frame}{Gibbs Sampling in PSMs}
 \vspace{1em}
 \centering
@@ -304,112 +284,7 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 \only<1>{\includegraphics[width=0.9\textwidth]{figures/cp_hard_cong.pdf}}%
 \only<2>{\includegraphics[width=0.9\textwidth]{figures/bottleneck1.pdf}}%
 \only<3>{\includegraphics[width=0.9\textwidth]{figures/bottleneck2.pdf}}%
-\end{frame}
-
-
-\newcommand*\circled[1]{\tikz[baseline=-0.3ex,anchor=base]{\node[shape=circle,draw,inner sep=1.5pt] (char) {\scriptsize #1};}}
-\begin{frame}{The \Ms{} Chain}
-\vspace{0.8em}
-\hspace{3pt} \Ms{} = Mixture of Log-Modulars Metropolis
-
-\vspace{-1em}
-\uncover<2->{
-\renewcommand{\arraystretch}{1}
-\begin{tabular}{>{\arraybackslash}p{0.28\textwidth}>{\arraybackslash}p{0.71\textwidth}}
-
-\begin{minipage}[t]{\textwidth}
-\vspace{1.8em}
-\only<7-8>{\color{col2}} \circled{1}\hspace{0.3em} Mixture
-\end{minipage}
-&
-\begin{minipage}[t]{\textwidth}
-\uncover<8->{%
-\vspace{1em}
-\only<1-10>{$q(S, T) = \displaystyle\frac{1}{Z_q} \sum_{i = 1}^{r} w_i\exp\left(m_i(T) \right)$}%
-\only<11->{${\color{col2}q(T)} = \displaystyle\frac{1}{Z_q} \sum_{i = 1}^{r} w_i\exp\left(m_i(T) \right)$}
-\vspace{1em}%
-}
-\end{minipage}
-\\ \midrule
-
-\begin{minipage}[t]{\textwidth}
-\vspace{1.15em}
-\only<9-10>{\color{col2}} \circled{2}\hspace{0.3em} Log-Modulars
-\end{minipage}
-&
-\begin{minipage}[t]{\textwidth}
-\uncover<10->{
-\vspace{1em}
-$m_i(T) = \displaystyle\sum_{v \in T} m_{iv}$
-\vspace{1em}
-}
-\end{minipage}
-\\ \midrule
-
-\begin{minipage}[t]{\textwidth}
-\vspace{2.45em}
-\only<3-6>{\color{col2}} \circled{3}\hspace{0.3em} Metropolis
-\end{minipage}
-&
-\begin{minipage}[t]{\textwidth}
-\vspace{1em}
-\begin{itemize}
-\item<4-> Target $\ p(S) \propto \exp(F(S))$
-\vspace{0.15em}
-\item<5-> \only<5-10>{Proposal $\ q(S, T)$}%
-\only<11->{Proposal \color{col2} $\ q(T)$}%
-\item<6-> Accept with probability%
-\only<6-10>{$\ \ \min\left\{1, \frac{p(T)q(T, S)}{p(S)q(S, T)}\right\}$}%
-\only<11->{$\ \ \min\left\{1, \frac{p(T)\color{col2}q(S)}{p(S)\color{col2}q(T)}\right\}$}%
-\end{itemize}
-\vspace{1em}
-\end{minipage}
-
-\end{tabular}
-}
-\end{frame}
-
-\begin{frame}{The Combined Chain}
-\vspace{0.5em}
-Gibbs step with prob. $\delta$ \hspace{1em}|\hspace{1em} \Ms{} step with prob. $1 - \delta$
-
-\uncover<2->{%
-\vspace{2em}
-\centering
-\only<1-2>{\includegraphics[width=\textwidth]{figures/decomposition1.pdf}}%
-\only<3>{\includegraphics[width=\textwidth]{figures/decomposition2.pdf}}%
-\only<4>{\includegraphics[width=\textwidth]{figures/decomposition.pdf}}%
-}
-\end{frame}
-
-\begin{frame}{The Combined Chain}
-\vspace{1em}
-\centering
-\only<1>{\includegraphics[width=\textwidth]{figures/exp3_1.pdf}}%
-\only<2>{\includegraphics[width=\textwidth]{figures/exp3_2.pdf}}%
-\only<3>{\includegraphics[width=\textwidth]{figures/exp3_3.pdf}}%
-\end{frame}
-
-\begin{frame}{Constructing the Mixture}
-\vspace{0.5em}
-\only<1-3>{Construction}\only<4->{{\color{col1dark}Iterative} construction} of $\ q(\cdot) \propto \displaystyle\sum_{i = 1}^{r} \exp\left(m_i(\cdot) \right)$
-
-\uncover<2->{%
-\vspace{3em}
-\begin{algorithmic}
-  \REQUIRE Set function $F$, mixture size $r$
-  \vspace{0.5em}
-  \FOR{$i = 1$ \TO $r$}
-  \vspace{0.3em}
-  \LET{$\sigma$}{\only<1-3>{Permutation of $V$}\only<4->{{\color{col1dark}\textsc{Greedy}$\left(F(\cdot) - \log\displaystyle\sum_{j = 1}^{i-1} \exp(m_j(\cdot))\right)$}}}
-  \vspace{0.3em}
-  \LET{$m_i$}{\only<1-2>{Modular function that approximates $F$ at $\sigma$}\only<3->{\color{col2}\textsc{SemiGradient}$\left(F, \sigma\right)$}}%\only<4->{\textsc{SemiGradient}($F$, $\sigma$)}}
-  \vspace{0.3em}
-  \ENDFOR
-  \RETURN $\{m_1, \ldots, m_r\}$
-\end{algorithmic}%
-}
-\vspace{4em}
+\only<4>{\includegraphics[width=0.9\textwidth]{figures/bottleneck3.pdf}}%
 \end{frame}
 
 \begin{frame}{Modeling Interactions between Cancer Mutations}
