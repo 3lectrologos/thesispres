@@ -256,22 +256,6 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 }}
 \end{frame}
 
-\begin{frame}{Proof Outline}
-\vspace{0.5em}
-\only<1>{Need to route $p(S)p(R)$ amount of flow between each $S, R \subseteq V$\qcitea{Sinclair, 1992}}
-\only<2-3>{Construct a ``canonical path'' between each $S, R \subseteq V$}
-\only<4>{The Markov chain transition probabilities determine the edge capacities}
-\only<5>{Congestion of an edge $\ \sim\ $ (total flow through edge) / capacity}
-\only<6-7>{$t_{\mathrm{mix}}(\epsilon) = \mathcal{O}\left(\max\{\textrm{congestion}\}\log \epsilon^{-1}\right)$ \qcitea{Sinclair, 1992}}
-\vspace{1em}
-
-\only<1>{\includegraphics[width=0.9\textwidth]{figures/cp_easy.pdf}}%
-\only<2>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_path_1.pdf}}%
-\only<3>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_path_4.pdf}}%
-\only<4>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_cap.pdf}}%
-\only<5-6>{\includegraphics[width=0.9\textwidth]{figures/cp_easy_cong.pdf}}%
-\only<7>{\includegraphics[width=0.9\textwidth]{figures/cp_hard_cong.pdf}}%
-\end{frame}
 
 \begin{frame}{Improved Mixing using Semigradients}
 \centering
@@ -281,10 +265,9 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 \begin{frame}{Bottlenecks}
 \vspace{1em}
 \centering
-\only<1>{\includegraphics[width=0.9\textwidth]{figures/cp_hard_cong.pdf}}%
-\only<2>{\includegraphics[width=0.9\textwidth]{figures/bottleneck1.pdf}}%
-\only<3>{\includegraphics[width=0.9\textwidth]{figures/bottleneck2.pdf}}%
-\only<4>{\includegraphics[width=0.9\textwidth]{figures/bottleneck3.pdf}}%
+\only<1>{\includegraphics[width=0.9\textwidth]{figures/bottleneck1.pdf}}%
+\only<2>{\includegraphics[width=0.9\textwidth]{figures/bottleneck2.pdf}}%
+\only<3>{\includegraphics[width=0.9\textwidth]{figures/bottleneck3.pdf}}%
 \end{frame}
 
 \begin{frame}{Modeling Interactions between Cancer Mutations}
@@ -313,6 +296,22 @@ Data $\ \mathcal{D} = \{D_1,\ldots, D_N\}$
 \end{frame}
 
 \begin{frame}{The FLiD Model \qcitea{Tschiatscheck et al., 2016}}
+\begin{align*}
+p(S) &= \displaystyle\frac{1}{Z}\exp \big( F(S) \big)\\
+F(S) &= \sum_{i \in S} u_i + \sum_{j=1}^{L} \left(\max_{i \in S} w_{ij} - \sum_{i \in S} w_{ij}\right),\ \ \ u_i \in \mathbb{R}, w_{ij} \in \mathbb{R}_{\geq 0}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Pipeline}
+\begin{enumerate}
+  \item Learn model parameters $\*u, \*w$ from data\\[1em]
+  \item Threshold $\*w$ to obtain candidate groups\\[1em]
+  \item Apply statistical tests to assess mutual exclusivity\\[1em]
+  \item Filter groups via online FDR control
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Synthetic Data}
 \centering
 \only<1>{\includegraphics[height=0.9\textheight]{figures/mat_syn.pdf}}%
 \only<2>{\includegraphics[height=0.9\textheight]{figures/mat_syn_1.pdf}}%
@@ -323,30 +322,37 @@ Data $\ \mathcal{D} = \{D_1,\ldots, D_N\}$
 $t\ $ groups of $k\ $ elements\\
 \vspace{1em}
 \centering
-\only<1>{\includegraphics[width=0.93\textwidth]{figures/syn_multi_one.pdf}}%
-\only<2>{\includegraphics[width=0.93\textwidth]{figures/syn_multi.pdf}}%
+\includegraphics[width=0.93\textwidth]{figures/syn_multi.pdf}%
+\end{frame}
+
+\begin{frame}{Real Cancer Data (TCGA AML)}
+\centering
+\only<1>{\includegraphics[height=0.92\textheight]{figures/mat_aml.pdf}}%
+\only<2>{\includegraphics[height=0.92\textheight]{figures/mat_aml_annotated.pdf}}
 \end{frame}
 
 \begin{frame}{Real Cancer Data (TCGA AML)}
 \vspace{1em}
 \centering
-\uncover<2->{\includegraphics[width=0.85\textwidth]{figures/aml_1.pdf}\\[2em]}
-\uncover<3>{\includegraphics[width=0.85\textwidth]{figures/aml_3.pdf}}
+\includegraphics[width=0.85\textwidth]{figures/aml_1.pdf}\\[2em]
+\includegraphics[width=0.85\textwidth]{figures/aml_2.pdf}
 \end{frame}
 
 \begin{frame}{Real Cancer Data (TCGA AML)}
 \vspace{1em}
 \centering
-\includegraphics[width=0.65\textwidth]{figures/graph_aml.pdf}
+\includegraphics[width=0.85\textwidth]{figures/aml_3.pdf}\\[2em]
+\includegraphics[width=0.85\textwidth]{figures/aml_4.pdf}
 \end{frame}
 
 \begin{frame}{Summary}
 \vspace{1em}
 \centering
-\only<1>{\includegraphics[width=\textwidth]{figures/chapters_end_1.pdf}}%
-\only<2>{\includegraphics[width=\textwidth]{figures/chapters_end_2.pdf}}%
-\only<3>{\includegraphics[width=\textwidth]{figures/chapters_end_3.pdf}}%
-\only<4>{\includegraphics[width=\textwidth]{figures/chapters_end.pdf}}%
+\includegraphics[width=\textwidth]{figures/chapters_end.pdf}%
+\end{frame}
+
+\begin{frame}{Ongoing and Future Work}
+
 \end{frame}
 
 \end{document}
