@@ -297,7 +297,7 @@ Data $\ \mathcal{D} = \{D_1,\ldots, D_N\}$
 
 \begin{frame}{The FLiD Model \qcitea{Tschiatscheck et al., 2016}}
 \begin{align*}
-p(S) &= \displaystyle\frac{1}{Z}\exp \big( F(S) \big)\\
+p(S) &= \displaystyle\frac{1}{Z}\exp \big( F(S) \big)\\[1em]
 F(S) &= \sum_{i \in S} u_i + \sum_{j=1}^{L} \left(\max_{i \in S} w_{ij} - \sum_{i \in S} w_{ij}\right),\ \ \ u_i \in \mathbb{R}, w_{ij} \in \mathbb{R}_{\geq 0}
 \end{align*}
 \end{frame}
@@ -312,10 +312,35 @@ F(S) &= \sum_{i \in S} u_i + \sum_{j=1}^{L} \left(\max_{i \in S} w_{ij} - \sum_{
 \end{frame}
 
 \begin{frame}{Synthetic Data}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\only<1>{\hspace{3em}$n_{\mathrm{iter}} = 0$}%
+\only<2>{\hspace{3em}$n_{\mathrm{iter}} = 100$}%
+\only<3>{\hspace{3em}$n_{\mathrm{iter}} = 200$}%
+\only<4>{\hspace{3em}$n_{\mathrm{iter}} = 300$}%
+\only<5>{\hspace{3em}$n_{\mathrm{iter}} = 400$}%
+\only<6>{\hspace{3em}$n_{\mathrm{iter}} = 500$}%
+\only<7>{\hspace{3em}$n_{\mathrm{iter}} = 600$}%
+\only<8>{\hspace{3em}$n_{\mathrm{iter}} = 700$}%
+\only<9>{\hspace{3em}$n_{\mathrm{iter}} = 800$}%
+\only<10>{\hspace{3em}$n_{\mathrm{iter}} = 900$}%
+\only<11>{\hspace{3em}$n_{\mathrm{iter}} = 1000$}%
+\end{column}
+\begin{column}{0.7\textwidth}
 \centering
-\only<1>{\includegraphics[height=0.9\textheight]{figures/mat_syn.pdf}}%
-\only<2>{\includegraphics[height=0.9\textheight]{figures/mat_syn_1.pdf}}%
-\only<3>{\includegraphics[height=0.9\textheight]{figures/mat_syn_2.pdf}}
+\only<1>{\includegraphics[height=0.9\textheight]{figures/mat_syn_0.pdf}}%
+\only<2>{\includegraphics[height=0.9\textheight]{figures/mat_syn_100.pdf}}%
+\only<3>{\includegraphics[height=0.9\textheight]{figures/mat_syn_200.pdf}}%
+\only<4>{\includegraphics[height=0.9\textheight]{figures/mat_syn_300.pdf}}%
+\only<5>{\includegraphics[height=0.9\textheight]{figures/mat_syn_400.pdf}}%
+\only<6>{\includegraphics[height=0.9\textheight]{figures/mat_syn_500.pdf}}%
+\only<7>{\includegraphics[height=0.9\textheight]{figures/mat_syn_600.pdf}}%
+\only<8>{\includegraphics[height=0.9\textheight]{figures/mat_syn_700.pdf}}%
+\only<9>{\includegraphics[height=0.9\textheight]{figures/mat_syn_800.pdf}}%
+\only<10>{\includegraphics[height=0.9\textheight]{figures/mat_syn_900.pdf}}%
+\only<11>{\includegraphics[height=0.9\textheight]{figures/mat_syn_1000.pdf}}%
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Synthetic Data}
@@ -351,8 +376,12 @@ $t\ $ groups of $k\ $ elements\\
 \includegraphics[width=\textwidth]{figures/chapters_end.pdf}%
 \end{frame}
 
-\begin{frame}{Ongoing and Future Work}
-
+\begin{frame}{Ongoing and Future Directions}
+\begin{itemize}
+  \item Learn cancer type ``factorization"
+  \vspace{2em}
+  \item Learn models that are guaranteed to mix fast
+\end{itemize}
 \end{frame}
 
 \end{document}

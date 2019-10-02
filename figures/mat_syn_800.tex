@@ -1,0 +1,43 @@
+\documentclass{standalone}
+
+\usepackage{../core}
+
+\def\ystep{0.2223in}
+\def\yoff{0in}
+\def\yg{17.9}
+\def\xgstep{0.525}
+\def\xshift{-50}
+
+\begin{document}
+\begin{tikzpicture}[
+  C/.style={circle,
+            draw=darkcolor,
+            line width=0.7pt,
+            text=textcolor,
+            inner sep=4pt
+            },
+  G/.style={anchor=south,
+            text=textcolor,
+            inner sep=0pt
+            },
+  M/.style={anchor=south west,
+            draw=darkcolor,
+            thin,
+            inner sep=1pt
+            },
+  N/.style={text=textcolor,
+            anchor=south east,
+            inner sep=0pt,
+            xshift=-2.43in
+            }
+]
+
+\node[C] at (-1.33,13.5) {\large $\*u$};
+\node[C] at (3.65,13.5) {\large $\*w$};
+
+\node[M] at (-2,0) {\includegraphics[height=5in]{u_800.png}};
+\node[M] at (1,0) {\includegraphics[height=5in]{w_800.png}};
+
+
+\end{tikzpicture}
+\end{document}
