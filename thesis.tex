@@ -296,20 +296,32 @@ Data $\ \mathcal{D} = \{D_1,\ldots, D_N\}$
 \end{frame}
 
 \begin{frame}{The FLiD Model \qcitea{Tschiatscheck et al., 2016}}
-\begin{align*}
-p(S) &= \displaystyle\frac{1}{Z}\exp \big( F(S) \big)\\[1em]
-F(S) &= \sum_{i \in S} u_i + \sum_{j=1}^{L} \left(\max_{i \in S} w_{ij} - \sum_{i \in S} w_{ij}\right),\ \ \ u_i \in \mathbb{R}, w_{ij} \in \mathbb{R}_{\geq 0}
-\end{align*}
+$p(S) = \displaystyle\frac{1}{Z}\exp \big( F(S) \big)$\\[1em]
+$F(S) = \displaystyle\sum_{i \in S} u_i + \displaystyle\sum_{j=1}^{L} \left(\displaystyle\max_{i \in S} w_{ij} - \displaystyle\sum_{i \in S} w_{ij}\right),\ \ \ u_i \in \mathbb{R}, w_{ij} \in \mathbb{R}_{\geq 0}$
+
+\vspace{2em}
+\uncover<2->{%
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+\only<1-2>{\includegraphics[height=1.4in]{figures/flid_empty.pdf}}%
+\only<3>{\includegraphics[height=1.4in]{figures/flid.pdf}}%
+\only<4>{\includegraphics[height=1.4in]{figures/flid_numbers_1.pdf}}%
+\only<5>{\includegraphics[height=1.4in]{figures/flid_numbers_2.pdf}}%
+\only<6>{\includegraphics[height=1.4in]{figures/flid.pdf}}%
+\end{column}
+\begin{column}{0.5\textwidth}
+\only<4-6>{
+
+}
+\only<6>{
+\includegraphics[height=1.5in]{figures/flid_dist.pdf}}%
+\vspace{-2.1em}
+\end{column}
+\end{columns}%
+}
 \end{frame}
 
-\begin{frame}{Pipeline}
-\begin{enumerate}
-  \item Learn model parameters $\*u, \*w$ from data\\[1em]
-  \item Threshold $\*w$ to obtain candidate groups\\[1em]
-  \item Apply statistical tests to assess mutual exclusivity\\[1em]
-  \item Filter groups via online FDR control
-\end{enumerate}
-\end{frame}
 
 \begin{frame}{Synthetic Data}
 \begin{columns}
@@ -341,6 +353,15 @@ F(S) &= \sum_{i \in S} u_i + \sum_{j=1}^{L} \left(\max_{i \in S} w_{ij} - \sum_{
 \only<11>{\includegraphics[height=0.9\textheight]{figures/mat_syn_1000.pdf}}%
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Pipeline}
+	\begin{enumerate}
+		\item Learn model parameters $\*u, \*w$ from data\\[1em]
+		\item Threshold $\*w$ to obtain candidate groups\\[1em]
+		\item Apply statistical tests to assess mutual exclusivity\\[1em]
+		\item Filter groups via online FDR control
+	\end{enumerate}
 \end{frame}
 
 \begin{frame}{Synthetic Data}
@@ -376,12 +397,23 @@ $t\ $ groups of $k\ $ elements\\
 \includegraphics[width=\textwidth]{figures/chapters_end.pdf}%
 \end{frame}
 
-\begin{frame}{Ongoing and Future Directions}
+\begin{frame}{Future Directions}
+\begin{columns}
+\begin{column}{0.6\textwidth}
 \begin{itemize}
-  \item Learn cancer type ``factorization"
-  \vspace{2em}
-  \item Learn models that are guaranteed to mix fast
+  \item<1-> Learn cancer type ``factorization"
+  \vspace{3em}
+  \item<4> Learn models that are guaranteed to mix fast
 \end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+\uncover<2->{%
+\only<1-2>{\includegraphics[width=0.9\textwidth]{figures/flid_fact_1.pdf}}%
+\only<3->{\includegraphics[width=0.9\textwidth]{figures/flid_fact_2.pdf}}%
+}
+\end{column}
+\end{columns}
+
 \end{frame}
 
 \end{document}
