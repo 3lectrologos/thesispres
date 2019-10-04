@@ -10,30 +10,30 @@
 
 \begin{document}
 \begin{tikzpicture}[
-  C/.style={circle,
-            draw=darkcolor,
-            line width=0.7pt,
-            text=textcolor,
-            inner sep=4pt
-            },
-  G/.style={anchor=south,
-            text=textcolor,
-            inner sep=0pt
-            },
-  M/.style={anchor=south west,
-            draw=darkcolor,
-            thin,
-            inner sep=1pt
-            },
-  N/.style={text=textcolor,
-            anchor=south east,
-            inner sep=0pt,
-            xshift=-2.43in
-            }
+C/.style={circle,
+	draw=darkcolor,
+	line width=0.7pt,
+	text=textcolor,
+	minimum height=2.5em
+},
+G/.style={anchor=south,
+	text=textcolor,
+	inner sep=0pt
+},
+M/.style={anchor=south west,
+	draw=darkcolor,
+	thin,
+	inner sep=1pt
+},
+N/.style={text=textcolor,
+	anchor=south east,
+	inner sep=0pt,
+	xshift=-2.43in
+}
 ]
 
 \node[C] at (-1.33,13.5) {\large $\*u$};
-\node[C] at (3.65,13.5) {\large $\*w$};
+\node[C] at (3.65,13.5) {\large $\,\*W$};
 
 \node[M] at (-2,0) {\includegraphics[height=5in]{u_200.png}};
 \node[M] at (1,0) {\includegraphics[height=5in]{w_200.png}};

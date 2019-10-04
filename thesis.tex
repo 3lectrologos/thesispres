@@ -276,7 +276,7 @@ t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_F)\log\epsilon^{-1}
 \end{frame}
 
 \begin{frame}{Approximate Maximum Likelihood Learning}
-\vspace{-1em}
+\vspace{1em}
 Data $\ \mathcal{D} = \{D_1,\ldots, D_N\}$
 
 \uncover<2->{%
@@ -287,7 +287,8 @@ Data $\ \mathcal{D} = \{D_1,\ldots, D_N\}$
 }%
 \only<3->{%
 \begin{align*}
-\ell(\btheta) &= \sum_{i=1}^N F(D_i; \btheta) - N \log Z(\btheta)\\[1em]
+\ell(\btheta) &=\sum_{i=1}^N \log\left( \frac{1}{Z} \exp\big(F(D_i; \btheta)\big) \right)\\
+              &=\sum_{i=1}^N F(D_i; \btheta) - N \log Z(\btheta)\\[1em]
 \uncover<4->{\nabla_{\btheta} \ell(\btheta) &= \frac{1}{N}\sum_{i=1}^N \nabla_{\btheta} F(D_i; \btheta) - \alt<4>{}{\color{col2}}\mathbb{E}_{p}\left[ \nabla_{\btheta} F(S; \btheta)\right]\\[0.5em]}
 \uncover<6->{&\approx \frac{1}{N}\sum_{i=1}^N \nabla_{\btheta} F(D_i; \btheta) - \color{col2}\frac{1}{M}\sum_{i=1}^M \nabla_{\btheta} F(S_i; \btheta)}
 \end{align*}
@@ -296,25 +297,25 @@ Data $\ \mathcal{D} = \{D_1,\ldots, D_N\}$
 \end{frame}
 
 \begin{frame}{The FLiD Model \qcitea{Tschiatscheck et al., 2016}}
-$p(S) = \displaystyle\frac{1}{Z}\exp \big( F(S) \big)$\\[1em]
-$F(S) = \displaystyle\sum_{i \in S} u_i + \displaystyle\sum_{j=1}^{L} \left(\displaystyle\max_{i \in S} w_{ij} - \displaystyle\sum_{i \in S} w_{ij}\right),\ \ \ u_i \in \mathbb{R}, w_{ij} \in \mathbb{R}_{\geq 0}$
+\only<1>{$p(S; \btheta) = \displaystyle\frac{1}{Z(\btheta)}\exp \big( F(S; \btheta) \big)$\\[1em]}
+\only<2->{$p(S; \*u, \*W) = \displaystyle\frac{1}{Z(\*u, \*W)}\exp \big( F(S; \*u, \*W) \big)$\\[1em]}
+\uncover<3->{%
+$F(S; \*u, \*W) = \displaystyle\sum_{i \in S} u_i + \displaystyle\sum_{j=1}^{L} \left(\displaystyle\max_{i \in S} w_{ij} - \displaystyle\sum_{i \in S} w_{ij}\right),\ \ \ \*u \in \mathbb{R}^n, \*W \in \mathbb{R}_{\geq 0}^{n \times L}$
+}
 
 \vspace{2em}
-\uncover<2->{%
+\uncover<4->{%
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \centering
-\only<1-2>{\includegraphics[height=1.4in]{figures/flid_empty.pdf}}%
-\only<3>{\includegraphics[height=1.4in]{figures/flid.pdf}}%
-\only<4>{\includegraphics[height=1.4in]{figures/flid_numbers_1.pdf}}%
-\only<5>{\includegraphics[height=1.4in]{figures/flid_numbers_2.pdf}}%
-\only<6>{\includegraphics[height=1.4in]{figures/flid.pdf}}%
+\only<1-4>{\includegraphics[height=1.4in]{figures/flid_empty.pdf}}%
+\only<5>{\includegraphics[height=1.4in]{figures/flid.pdf}}%
+\only<6>{\includegraphics[height=1.4in]{figures/flid_numbers_1.pdf}}%
+\only<7>{\includegraphics[height=1.4in]{figures/flid_numbers_2.pdf}}%
+\only<8>{\includegraphics[height=1.4in]{figures/flid.pdf}}%
 \end{column}
 \begin{column}{0.5\textwidth}
-\only<4-6>{
-
-}
-\only<6>{
+\only<8>{
 \includegraphics[height=1.5in]{figures/flid_dist.pdf}}%
 \vspace{-2.1em}
 \end{column}
@@ -357,8 +358,8 @@ $F(S) = \displaystyle\sum_{i \in S} u_i + \displaystyle\sum_{j=1}^{L} \left(\dis
 
 \begin{frame}{Pipeline}
 	\begin{enumerate}
-		\item Learn model parameters $\*u, \*w$ from data\\[1em]
-		\item Threshold $\*w$ to obtain candidate groups\\[1em]
+		\item Learn model parameters $\*u, \*W$ from data\\[1em]
+		\item Threshold $\*W$ to obtain candidate groups\\[1em]
 		\item Apply statistical tests to assess mutual exclusivity\\[1em]
 		\item Filter groups via online FDR control
 	\end{enumerate}
