@@ -23,18 +23,19 @@
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{figures/bg_no_line.png}}
 
 
-\begin{frame}{The Cancer Genome Atlas}
+\begin{frame}{Cancer Pathways}
 \vspace{0.5em}
 \centering
+\only<1>{\includegraphics[width=\textwidth]{figures/pathways_pik3k.jpg}\\[-0.3em]
+\hfill{}\qsource{biooncology.com}
+}
+\only<2>{\includegraphics[width=\textwidth]{figures/pathways_alt.png}\\[-0.3em]
+\hfill{}\qsource{genome.jp}
+}
+\only<3>{
 \includegraphics[width=2.5in]{figures/tcga.png}\\[-0.3em]
 \hspace{12em}\qsource{cancergenome.nih.gov}
-\end{frame}
-
-\begin{frame}{The Cancer Genome Atlas}
-\vspace{0.5em}
-\centering
-\includegraphics[width=\textwidth]{figures/pathways_alt.png}\\[-0.3em]
-\hfill{}\qsource{genome.jp}
+}
 \end{frame}
 
 \begin{frame}{Modeling Interactions between Gene Mutations}
