@@ -67,29 +67,24 @@
 \end{frame}
 
 \begin{frame}{Solution II: Trivial imputation}
-  \centering
+  \begin{center}
   \includegraphics[width=\textwidth]{figures/brca_fill.pdf}
+  \end{center}
   \vspace{1em}
+  \uncover<2->{%
+  May be able to filter it out (more on this later), but\ldots
   \begin{itemize}
-	\item May be able to filter it out (more on this later), but\ldots
 	\vspace{0.5em}
-	\item \ldots extra noise makes filtering more conservative,
+	\item \ldots extra noise may make filtering more conservative,
 	\item \ldots spurious groups occupy space in the representation.
-\end{itemize}
+  \end{itemize}%
+}
 \end{frame}
 
 \begin{frame}{Solution III: Trivial multiple imputation}
   \centering
   \includegraphics[width=3.7in]{figures/example1_missing.pdf}
   
-  \vspace{2em}
-  \uncover<2->{\includegraphics[width=3in]{figures/maxlik.png}}
-\end{frame}
-
-\begin{frame}{Solution III: Trivial multiple imputation}
-  \centering
-  \includegraphics[width=3.7in]{figures/example1_missing.pdf}
-
   \vspace{2em}
   \uncover<2->{\includegraphics[width=3in]{figures/maxlik.png}}
 \end{frame}
@@ -106,11 +101,11 @@
 
 \begin{frame}{Solution IV: Sophisticated multiple imputation}
   \begin{itemize}
-    \item Fully-conditional specification: $\ \ P(G_i \mid G_1, \ldots, G_{i-1}, G_{i+1}, G_n, \theta_i)$
+    \item<1-> Fully-conditional specification: $\ \ P(G_i \mid G_1, \ldots, G_{i-1}, G_{i+1}, G_n, \theta_i)$
     \vspace{1em}
-    \item Start with some initial imputation $\hat{G}_i$
+    \item<2-> Start with some initial imputation $\hat{G}_i$
     \vspace{1em}
-    \item for $t = 1,\ldots,N_{\textrm{iter}}$\\[0.2em]
+    \item<3-> for $t = 1,\ldots,N_{\textrm{iter}}$\\[0.2em]
           \hspace{0.9em}for $i = 1,\ldots, n$
     \vspace{0.5em}
     \begin{itemize}
@@ -121,13 +116,13 @@
   \end{itemize}
   \vspace{2em}
   
-  \uncover<2->{%
+  \uncover<4->{%
   \begin{itemize}
-  	\item Looks exactly like Gibbs sampling, but implied joint dist. may not exist
+  	\item<4-> Looks exactly like Gibbs sampling, but implied joint dist. may not exist
   	\vspace{0.5em}
-  	\item Surprising lack of ML libraries (e.g., MICE in R)
+  	\item<5-> Surprising lack of ML libraries (e.g., MICE in R)
   	\vspace{0.5em}
-  	\item Slow!
+  	\item<6-> Slow!
   \end{itemize}
   }
   
@@ -148,12 +143,14 @@
 \end{frame}
 
 \begin{frame}{Solution V: Marginal learning}
-Log-likelihood $\ \ \ell(\theta) = \displaystyle\sum_{i=1}^{N} \log p(D_i; \theta)$
-  
+Log-likelihood $\ \ \ell(\*\theta) = \displaystyle\sum_{i=1}^{N} \log p(D_i; \*\theta)$
+
+\uncover<2->{%
 \begin{align*}
-  \ell(\theta) &= \sum_{i=1}^{N_1} \log p\left(\left(g_1^{(i)}, g_2^{(i)}, \*?\right); \*\theta\right) + \sum_{i=1}^{N_2} \log p\left(\left(g_1^{(i)}, \*?, g_3^{(i)}\right); \*\theta\right)\\
-  \ell_{\textrm{marg}}(\theta) &= \sum_{i=1}^{N_1} \log p_{12}\left(\left(g_1^{(i)}, g_2^{(i)}\right); \*\theta\right) + \sum_{i=1}^{N_2} \log p_{13}\left(\left(g_1^{(i)}, g_3^{(i)}\right); \*\theta\right)
-\end{align*}
+  \ell(\*\theta) &= \sum_{i=1}^{N_1} \log p\left(\left(g_1^{(i)}, g_2^{(i)}, \*?\right); \*\theta\right) + \sum_{i=1}^{N_2} \log p\left(\left(g_1^{(i)}, \*?, g_3^{(i)}\right); \*\theta\right)\uncover<3->{\\
+  \ell_{\textrm{marg}}(\theta) &= \sum_{i=1}^{N_1} \log p_{12}\left(\left(g_1^{(i)}, g_2^{(i)}\right); \*\theta\right) + \sum_{i=1}^{N_2} \log p_{13}\left(\left(g_1^{(i)}, g_3^{(i)}\right); \*\theta\right)}
+\end{align*}%
+}
 
 \vspace{1em}
 \uncover<4->{%
@@ -166,7 +163,7 @@ Log-likelihood $\ \ \ell(\theta) = \displaystyle\sum_{i=1}^{N} \log p(D_i; \thet
 \begin{enumerate}[(I)]
   \item {\color{colneg}Panel intersection}
   \vspace{0.7em}
-  \item {\color{colneg}Trivial imputation}
+  \item {\color{colneg}Trivial single imputation}
   \vspace{0.7em}
   \item {\color{colneg}Trivial multiple imputation}
   \vspace{0.7em}
